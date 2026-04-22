@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "author": "Divyam",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht", "top": -143.7, "left": -216.6, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir", "top": 0, "left": -220, "attrs": {} },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr", "top": 137.6, "left": -220, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "ledLight",
+      "top": 140.4,
+      "left": 243.8,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 138.35,
+      "left": 297.6,
+      "attrs": { "value": "220" }
+    },
+    { "type": "wokwi-servo", "id": "servo", "top": 0, "left": 260, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relayAC", "top": -80, "left": 240, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relayHeater", "top": -140, "left": 240, "attrs": {} }
+  ],
+  "connections": [
+    [ "dht:GND", "esp:GND.2", "black", [ "v0", "h144", "v172.8" ] ],
+    [ "esp:D14", "dht:SDA", "green", [ "h23.5", "v-158.7", "h-211.2", "v0", "h-105.6" ] ],
+    [ "dht:VCC", "esp:3V3", "red", [ "v19.2", "h364.8", "v172.8", "h-9.6" ] ],
+    [ "pir:VCC", "esp:3V3", "red", [ "v23.2", "h174.22", "v48" ] ],
+    [ "pir:GND", "esp:GND.2", "black", [ "v32.8", "h135.56", "v19.2" ] ],
+    [ "esp:D13", "pir:OUT", "green", [ "h-62.6", "v-33.9", "h-9.6" ] ],
+    [ "ldr:VCC", "esp:3V3", "red", [ "h28.8", "v9.6" ] ],
+    [ "ldr:GND", "esp:GND.2", "black", [ "h19.2", "v-19.6" ] ],
+    [ "esp:D34", "ldr:AO", "green", [ "h-43.4", "v138.9" ] ],
+    [ "esp:D5", "ledLight:A", "green", [ "h100.3", "v110.3", "h38.4" ] ],
+    [ "esp:GND.1", "r1:2", "black", [ "h42.7", "v91", "h211.2", "v-9.6" ] ],
+    [ "esp:VIN", "servo:V+", "red", [ "h-14.6", "v-4.9", "h0", "v57.6", "h192", "v-153.6" ] ],
+    [ "esp:GND.1", "servo:GND", "black", [ "h42.7", "v-101" ] ],
+    [ "esp:D4", "servo:PWM", "green", [ "h119.5", "v-52.8" ] ],
+    [ "relayAC:GND", "esp:GND.1", "black", [ "h-96", "v195" ] ],
+    [ "esp:D2", "relayAC:IN", "green", [ "h90.7", "v4" ] ],
+    [ "relayHeater:VCC", "esp:3V3", "red", [ "h-67.2", "v5.8" ] ],
+    [ "relayHeater:GND", "esp:GND.1", "black", [ "h-96", "v255" ] ],
+    [ "esp:D18", "relayHeater:IN", "green", [ "h109.9", "v-187.3", "h9.6" ] ],
+    [ "r1:1", "ledLight:C", "black", [ "v67.2", "h-48" ] ],
+    [ "relayAC:VCC", "esp:3V3", "red", [ "h-67.2", "v214.6" ] ]
+  ],
+  "dependencies": {},
+  "serialMonitor": { "display": "always" }
+}

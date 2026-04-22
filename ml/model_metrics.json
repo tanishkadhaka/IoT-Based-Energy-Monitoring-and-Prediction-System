@@ -1,0 +1,35 @@
+{
+  "Linear Regression": {
+    "r2": 0.3925,
+    "mae": 0.0685,
+    "rmse": 0.0966,
+    "feature_importances": {
+      "hour": 0.0002,
+      "day_of_week": 0.0006,
+      "month": 0.0,
+      "is_weekend": 0.0022,
+      "room_enc": 0.0124,
+      "device_enc": 0.0396,
+      "temperature": 0.0014,
+      "humidity": 0.0,
+      "is_device_on": 0.1355
+    }
+  },
+  "Random Forest": {
+    "r2": 0.9912,
+    "mae": 0.0037,
+    "rmse": 0.0116,
+    "feature_importances": {
+      "hour": 0.0003,
+      "day_of_week": 0.0002,
+      "month": 0.0002,
+      "is_weekend": 0.0,
+      "room_enc": 0.0086,
+      "device_enc": 0.7403,
+      "temperature": 0.0006,
+      "humidity": 0.0007,
+      "is_device_on": 0.2492
+    }
+  },
+  "best_model": "Random Forest"
+}
