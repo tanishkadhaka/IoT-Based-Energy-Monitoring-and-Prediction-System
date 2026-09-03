@@ -195,10 +195,7 @@
                                 <option>Heater</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="predHour">Hour (0-23)</label>
-                            <input type="number" id="predHour" min="0" max="23" value="14">
-                        </div>
+                        <!-- Hour input removed because prediction is daily now, but we keep the row layout -->
                         <div class="form-group">
                             <label for="predMonth">Month (1-12)</label>
                             <input type="number" id="predMonth" min="1" max="12" value="6">
@@ -219,11 +216,11 @@
                 </form>
                 <div id="predictionResult" class="prediction-result hidden">
                     <div class="result-row">
-                        <span>Predicted Energy</span>
+                        <span>Predicted Daily Energy</span>
                         <strong id="predKwh">--</strong>
                     </div>
                     <div class="result-row">
-                        <span>Estimated Cost</span>
+                        <span>Estimated Daily Cost</span>
                         <strong id="predCost">--</strong>
                     </div>
                 </div>

@@ -407,12 +407,11 @@ function renderFeatureChart(importances) {
         .sort((a, b) => b[1] - a[1]);
 
     const featureLabels = {
-        'is_device_on': 'Device Status',
+        'usage_rate': 'Device Runtime',
         'device_enc': 'Device Type',
         'room_enc': 'Room',
-        'hour': 'Hour of Day',
-        'temperature': 'Temperature',
-        'humidity': 'Humidity',
+        'avg_temperature': 'Temperature',
+        'avg_humidity': 'Humidity',
         'month': 'Month',
         'day_of_week': 'Day of Week',
         'is_weekend': 'Weekend',
@@ -511,7 +510,7 @@ function setupPredictionForm() {
             humidity: parseFloat(document.getElementById('predHumidity').value),
             day_of_week: 2,
             is_weekend: 0,
-            is_device_on: 1,
+            usage_rate: 0.5,
         };
 
         const btn = document.getElementById('predictBtn');
@@ -530,8 +529,8 @@ function setupPredictionForm() {
         btn.disabled = false;
 
         if (data && !data.error) {
-            document.getElementById('predKwh').textContent = data.predicted_kwh.toFixed(4) + ' kWh';
-            document.getElementById('predCost').textContent = '₹' + data.estimated_cost_inr.toFixed(2);
+            document.getElementById('predKwh').textContent = data.predicted_daily_kwh.toFixed(2) + ' kWh';
+            document.getElementById('predCost').textContent = '₹' + data.estimated_daily_cost_inr.toFixed(2);
             document.getElementById('predictionResult').classList.remove('hidden');
         } else {
             alert('Prediction failed: ' + (data?.error || 'Unknown error'));

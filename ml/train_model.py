@@ -39,12 +39,18 @@ def prepare_features(df: pd.DataFrame):
     df["room_enc"] = le_room.fit_transform(df["room"])
     df["device_enc"] = le_device.fit_transform(df["device"])
 
+    # Extract date features
+    df["date"] = pd.to_datetime(df["date"])
+    df["month"] = df["date"].dt.month
+    df["day_of_week"] = df["date"].dt.dayofweek
+    df["is_weekend"] = (df["day_of_week"] >= 5).astype(int)
+
     feature_cols = [
-        "hour", "day_of_week", "month", "is_weekend",
+        "month", "day_of_week", "is_weekend",
         "room_enc", "device_enc",
-        "temperature", "humidity", "is_device_on",
+        "avg_temperature", "avg_humidity", "usage_rate",
     ]
-    target_col = "energy_kwh"
+    target_col = "total_kwh"
 
     X = df[feature_cols].copy()
     y = df[target_col].copy()
@@ -154,10 +160,10 @@ def save_outputs(results: dict, y_test, X_test, best_name: str,
 
 def main():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    data_path = os.path.join(base_dir, "data", "processed_data.csv")
+    data_path = os.path.join(base_dir, "data", "daily_aggregates.csv")
 
     if not os.path.exists(data_path):
-        print(f"Error: Processed data not found at {data_path}")
+        print(f"Error: Daily aggregate data not found at {data_path}")
         print("Run data_processor.py first.")
         sys.exit(1)
 

@@ -30,9 +30,17 @@ def engineer_features(df: pd.DataFrame, interval_minutes: int = 15) -> pd.DataFr
     df["is_weekend"] = (df["day_of_week"] >= 5).astype(int)
     df["date"] = df["timestamp"].dt.date
 
-    # Energy calculation: kWh = watts * hours / 1000
-    duration_hours = interval_minutes / 60.0
-    df["energy_kwh"] = (df["power_watts"] * duration_hours) / 1000.0
+    # Energy calculation: dynamic duration to support both batch (15m) and real-time (5s)
+    df = df.sort_values(by=["room", "device", "timestamp"])
+    df["duration_hours"] = df.groupby(["room", "device"])["timestamp"].diff().dt.total_seconds() / 3600.0
+    
+    # Fill first rows and gap-cap (cap at 1 hour max for missing data)
+    default_duration = interval_minutes / 60.0
+    df["duration_hours"] = df["duration_hours"].fillna(default_duration)
+    df["duration_hours"] = df["duration_hours"].clip(upper=1.0)
+    
+    # kWh = watts * hours / 1000
+    df["energy_kwh"] = (df["power_watts"] * df["duration_hours"]) / 1000.0
     df["energy_kwh"] = df["energy_kwh"].round(4)
 
     # Time period labels

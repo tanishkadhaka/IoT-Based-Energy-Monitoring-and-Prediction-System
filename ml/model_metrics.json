@@ -1,34 +1,32 @@
 {
   "Linear Regression": {
-    "r2": 0.3925,
-    "mae": 0.0685,
-    "rmse": 0.0966,
+    "r2": 0.5631,
+    "mae": 0.949,
+    "rmse": 1.2768,
     "feature_importances": {
-      "hour": 0.0002,
-      "day_of_week": 0.0006,
-      "month": 0.0,
-      "is_weekend": 0.0022,
-      "room_enc": 0.0124,
-      "device_enc": 0.0396,
-      "temperature": 0.0014,
-      "humidity": 0.0,
-      "is_device_on": 0.1355
+      "month": 0.0017,
+      "day_of_week": 0.0171,
+      "is_weekend": 0.2927,
+      "room_enc": 0.1263,
+      "device_enc": 1.2255,
+      "avg_temperature": 0.0249,
+      "avg_humidity": 0.0015,
+      "usage_rate": 0.1412
     }
   },
   "Random Forest": {
-    "r2": 0.9912,
-    "mae": 0.0037,
-    "rmse": 0.0116,
+    "r2": 0.9964,
+    "mae": 0.0555,
+    "rmse": 0.1156,
     "feature_importances": {
-      "hour": 0.0003,
-      "day_of_week": 0.0002,
-      "month": 0.0002,
+      "month": 0.0005,
+      "day_of_week": 0.0003,
       "is_weekend": 0.0,
-      "room_enc": 0.0086,
-      "device_enc": 0.7403,
-      "temperature": 0.0006,
-      "humidity": 0.0007,
-      "is_device_on": 0.2492
+      "room_enc": 0.0001,
+      "device_enc": 0.8597,
+      "avg_temperature": 0.0007,
+      "avg_humidity": 0.0008,
+      "usage_rate": 0.138
     }
   },
   "best_model": "Random Forest"

@@ -1,121 +1,121 @@
 hour,room,avg_kwh,avg_power
-0,Bathroom,0.0117,46.7
-0,Bedroom,0.0655,262.2
-0,Kitchen,0.0185,73.9
-0,Living Room,0.0418,167.3
-0,Office,0.0157,63.0
-1,Bathroom,0.0101,40.5
-1,Bedroom,0.0702,280.7
-1,Kitchen,0.02,80.0
-1,Living Room,0.0406,162.4
-1,Office,0.0144,57.6
-2,Bathroom,0.0109,43.4
-2,Bedroom,0.067,268.1
-2,Kitchen,0.0202,81.0
-2,Living Room,0.0437,174.9
-2,Office,0.0145,58.1
-3,Bathroom,0.0098,39.3
-3,Bedroom,0.0668,267.1
-3,Kitchen,0.0253,101.3
-3,Living Room,0.0384,153.7
-3,Office,0.013,52.1
-4,Bathroom,0.009,36.1
-4,Bedroom,0.0696,278.6
-4,Kitchen,0.0181,72.6
-4,Living Room,0.0399,159.5
-4,Office,0.0163,65.1
-5,Bathroom,0.0099,39.6
-5,Bedroom,0.0728,291.3
-5,Kitchen,0.0241,96.5
-5,Living Room,0.05,199.9
-5,Office,0.0171,68.5
-6,Bathroom,0.1027,410.7
-6,Bedroom,0.0713,285.4
-6,Kitchen,0.0172,68.7
-6,Living Room,0.0467,186.7
-6,Office,0.0203,81.2
-7,Bathroom,0.1052,420.7
-7,Bedroom,0.0543,217.3
-7,Kitchen,0.1422,568.8
-7,Living Room,0.0463,185.2
-7,Office,0.0239,95.8
-8,Bathroom,0.1028,411.4
-8,Bedroom,0.058,232.1
-8,Kitchen,0.145,579.9
-8,Living Room,0.05,200.1
-8,Office,0.0235,94.0
-9,Bathroom,0.0985,394.0
-9,Bedroom,0.0574,229.6
-9,Kitchen,0.1427,570.8
-9,Living Room,0.0559,223.6
-9,Office,0.0839,335.8
-10,Bathroom,0.0104,41.5
-10,Bedroom,0.0601,240.6
-10,Kitchen,0.0174,69.7
-10,Living Room,0.0581,232.4
-10,Office,0.0876,350.2
-11,Bathroom,0.0096,38.3
-11,Bedroom,0.0577,231.0
-11,Kitchen,0.017,67.8
-11,Living Room,0.0548,219.3
-11,Office,0.0868,347.3
-12,Bathroom,0.0085,33.9
-12,Bedroom,0.0601,240.4
-12,Kitchen,0.1381,552.5
-12,Living Room,0.0557,223.0
-12,Office,0.0847,338.7
-13,Bathroom,0.0099,39.7
-13,Bedroom,0.0576,230.3
-13,Kitchen,0.1514,605.5
-13,Living Room,0.0507,202.8
-13,Office,0.0854,341.8
-14,Bathroom,0.0071,28.4
-14,Bedroom,0.0589,235.8
-14,Kitchen,0.1454,581.7
-14,Living Room,0.0546,218.5
-14,Office,0.0816,326.4
-15,Bathroom,0.0075,29.9
-15,Bedroom,0.058,232.2
-15,Kitchen,0.0164,65.6
-15,Living Room,0.0534,213.7
-15,Office,0.0811,324.3
-16,Bathroom,0.0089,35.6
-16,Bedroom,0.0534,213.8
-16,Kitchen,0.0173,69.4
-16,Living Room,0.0516,206.3
-16,Office,0.0789,315.8
-17,Bathroom,0.0074,29.6
-17,Bedroom,0.0501,200.6
-17,Kitchen,0.0193,77.2
-17,Living Room,0.0433,173.4
-17,Office,0.0734,293.4
-18,Bathroom,0.102,408.1
-18,Bedroom,0.0453,181.2
-18,Kitchen,0.1319,527.4
-18,Living Room,0.0394,157.6
-18,Office,0.0681,272.4
-19,Bathroom,0.0924,369.7
-19,Bedroom,0.0479,191.7
-19,Kitchen,0.1522,608.8
-19,Living Room,0.0419,167.8
-19,Office,0.0158,63.2
-20,Bathroom,0.1036,414.5
-20,Bedroom,0.0446,178.3
-20,Kitchen,0.1427,570.9
-20,Living Room,0.0437,174.9
-20,Office,0.0182,72.9
-21,Bathroom,0.0987,394.7
-21,Bedroom,0.0513,205.4
-21,Kitchen,0.1424,569.4
-21,Living Room,0.0388,155.4
-21,Office,0.0159,63.7
-22,Bathroom,0.0095,38.1
-22,Bedroom,0.0684,273.7
-22,Kitchen,0.0232,92.9
-22,Living Room,0.0425,170.0
-22,Office,0.0175,70.2
-23,Bathroom,0.0109,43.7
-23,Bedroom,0.0616,246.6
-23,Kitchen,0.0208,83.2
-23,Living Room,0.0438,175.3
-23,Office,0.015,60.0
+0,Bathroom,0.0053,21.3
+0,Bedroom,0.0111,44.4
+0,Kitchen,0.003,12.0
+0,Living Room,0.0099,39.6
+0,Office,0.0106,42.3
+1,Bathroom,0.0027,10.9
+1,Bedroom,0.0111,44.4
+1,Kitchen,0.0038,15.0
+1,Living Room,0.0112,44.9
+1,Office,0.012,48.1
+2,Bathroom,0.0047,18.6
+2,Bedroom,0.0123,49.1
+2,Kitchen,0.0037,14.7
+2,Living Room,0.0124,49.7
+2,Office,0.0119,47.7
+3,Bathroom,0.0035,14.0
+3,Bedroom,0.0117,47.0
+3,Kitchen,0.0041,16.3
+3,Living Room,0.0111,44.4
+3,Office,0.0118,47.3
+4,Bathroom,0.003,12.1
+4,Bedroom,0.011,44.1
+4,Kitchen,0.0041,16.3
+4,Living Room,0.0117,47.0
+4,Office,0.0107,43.0
+5,Bathroom,0.0049,19.7
+5,Bedroom,0.0126,50.5
+5,Kitchen,0.0058,23.3
+5,Living Room,0.0142,56.7
+5,Office,0.0131,52.5
+6,Bathroom,0.0283,113.1
+6,Bedroom,0.0118,47.4
+6,Kitchen,0.027,108.0
+6,Living Room,0.0118,47.3
+6,Office,0.0125,50.1
+7,Bathroom,0.0298,119.2
+7,Bedroom,0.0133,53.2
+7,Kitchen,0.027,107.9
+7,Living Room,0.0141,56.5
+7,Office,0.0118,47.3
+8,Bathroom,0.0251,100.4
+8,Bedroom,0.0122,48.7
+8,Kitchen,0.0264,105.5
+8,Living Room,0.0119,47.6
+8,Office,0.0133,53.2
+9,Bathroom,0.0039,15.7
+9,Bedroom,0.0174,69.8
+9,Kitchen,0.0035,14.0
+9,Living Room,0.0168,67.2
+9,Office,0.0162,65.0
+10,Bathroom,0.0035,13.9
+10,Bedroom,0.0172,68.8
+10,Kitchen,0.0039,15.6
+10,Living Room,0.0168,67.3
+10,Office,0.017,68.1
+11,Bathroom,0.0038,15.1
+11,Bedroom,0.0179,71.5
+11,Kitchen,0.004,16.0
+11,Living Room,0.0151,60.3
+11,Office,0.0173,69.2
+12,Bathroom,0.0047,18.7
+12,Bedroom,0.0274,109.6
+12,Kitchen,0.0047,18.9
+12,Living Room,0.0306,122.5
+12,Office,0.0264,105.6
+13,Bathroom,0.0047,18.8
+13,Bedroom,0.0279,111.7
+13,Kitchen,0.0047,18.9
+13,Living Room,0.027,108.2
+13,Office,0.0276,110.3
+14,Bathroom,0.0051,20.3
+14,Bedroom,0.028,112.3
+14,Kitchen,0.0036,14.5
+14,Living Room,0.026,103.9
+14,Office,0.0279,111.9
+15,Bathroom,0.003,12.1
+15,Bedroom,0.0265,106.2
+15,Kitchen,0.0042,16.7
+15,Living Room,0.0271,108.4
+15,Office,0.0283,113.3
+16,Bathroom,0.0047,18.8
+16,Bedroom,0.0198,79.2
+16,Kitchen,0.005,19.8
+16,Living Room,0.0211,84.6
+16,Office,0.0176,70.5
+17,Bathroom,0.0045,17.8
+17,Bedroom,0.022,88.0
+17,Kitchen,0.0052,20.6
+17,Living Room,0.022,88.1
+17,Office,0.0207,82.7
+18,Bathroom,0.0223,89.1
+18,Bedroom,0.0193,77.3
+18,Kitchen,0.0223,89.1
+18,Living Room,0.0196,78.5
+18,Office,0.0193,77.4
+19,Bathroom,0.0246,98.3
+19,Bedroom,0.0201,80.6
+19,Kitchen,0.0228,91.2
+19,Living Room,0.0213,85.2
+19,Office,0.0196,78.6
+20,Bathroom,0.0264,105.8
+20,Bedroom,0.0161,64.4
+20,Kitchen,0.0241,96.3
+20,Living Room,0.0185,74.0
+20,Office,0.0175,70.2
+21,Bathroom,0.004,15.9
+21,Bedroom,0.0181,72.6
+21,Kitchen,0.0044,17.6
+21,Living Room,0.0186,74.6
+21,Office,0.0192,77.0
+22,Bathroom,0.0044,17.6
+22,Bedroom,0.0173,69.3
+22,Kitchen,0.0027,10.9
+22,Living Room,0.0178,71.1
+22,Office,0.0175,70.1
+23,Bathroom,0.0037,14.7
+23,Bedroom,0.0177,70.7
+23,Kitchen,0.004,16.1
+23,Living Room,0.0153,61.2
+23,Office,0.017,68.2

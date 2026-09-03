@@ -2,7 +2,7 @@
 Serial Reader — Captures data from Wokwi ESP32 simulation.
 
 Modes:
-  --live      Connect to Wokwi via RFC2217 (port 4000) and capture real serial data
+  --live      Connect to Wokwi via RFC2217 (port 4001) and capture real serial data
   --demo      Generate simulated JSON readings (same format as the ESP32 sketch)
               for testing the pipeline without Wokwi running
 
@@ -97,7 +97,7 @@ def reading_to_rows(data: dict, timestamp: str, room: str = "Room_1") -> list[di
 # LIVE MODE — Connect to Wokwi via RFC2217
 # ═════════════════════════════════════════════════════════════════════════════
 
-def run_live(port: int = 4000, max_readings: int = 500):
+def run_live(port: int = 4001, max_readings: int = 500):
     """Connect to Wokwi RFC2217 serial and capture live data."""
     try:
         import serial
@@ -376,8 +376,8 @@ def main():
     parser.add_argument("--mode", choices=["live", "demo", "expand"],
                         default="demo",
                         help="live=Wokwi serial, demo=simulated, expand=spread timestamps")
-    parser.add_argument("--port", type=int, default=4000,
-                        help="RFC2217 port (live mode, default: 4000)")
+    parser.add_argument("--port", type=int, default=4001,
+                        help="RFC2217 port (live mode, default: 4001)")
     parser.add_argument("--readings", type=int, default=500,
                         help="Number of readings to capture/generate")
     parser.add_argument("--months", type=int, default=6,

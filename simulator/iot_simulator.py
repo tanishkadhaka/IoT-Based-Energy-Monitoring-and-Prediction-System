@@ -84,60 +84,58 @@ def get_humidity(hour: int, month: int) -> float:
 def device_on_probability(device: str, hour: int, is_weekend: bool, temperature: float) -> float:
     """
     Return probability [0, 1] that a device is ON at a given hour.
-    Models realistic usage patterns.
+    Models realistic usage patterns but scaled down for medium-sized Indian homes (~3000 kWh/year).
     """
     if device == "AC":
-        # AC usage driven by temperature; peaks in afternoon
-        temp_factor = max(0, (temperature - 25) / 20)  # 0 at 25°C, 0.5 at 35°C
+        temp_factor = max(0, (temperature - 25) / 20)
         if 0 <= hour < 6:
-            base = 0.3 if temperature > 28 else 0.1
+            base = 0.05 if temperature > 28 else 0.02
         elif 6 <= hour < 9:
-            base = 0.2
+            base = 0.02
         elif 9 <= hour < 12:
-            base = 0.4
+            base = 0.05
         elif 12 <= hour < 16:
-            base = 0.7  # peak afternoon
+            base = 0.15
         elif 16 <= hour < 20:
-            base = 0.5
+            base = 0.10
         else:
-            base = 0.4
-        prob = min(1.0, base + temp_factor * 0.4)
+            base = 0.08
+        prob = min(1.0, base + temp_factor * 0.1)
         if is_weekend:
-            prob = min(1.0, prob + 0.15)
+            prob = min(1.0, prob + 0.05)
         return prob
 
     elif device == "Fan":
         if 0 <= hour < 6:
-            return 0.4
+            return 0.15
         elif 6 <= hour < 9:
-            return 0.5
+            return 0.10
         elif 9 <= hour < 17:
-            return 0.3 if not is_weekend else 0.6
+            return 0.08 if not is_weekend else 0.15
         else:
-            return 0.6
+            return 0.12
 
     elif device == "Lights":
         if 0 <= hour < 6:
-            return 0.05
+            return 0.01
         elif 6 <= hour < 8:
-            return 0.5
+            return 0.05
         elif 8 <= hour < 17:
-            return 0.15 if not is_weekend else 0.4
+            return 0.02 if not is_weekend else 0.05
         elif 17 <= hour < 22:
-            return 0.85
+            return 0.25
         else:
-            return 0.3
+            return 0.08
 
     elif device == "Heater":
-        # Water heaters: morning & evening spikes
         if 6 <= hour < 9:
-            return 0.6
+            return 0.10
         elif 18 <= hour < 21:
-            return 0.45
+            return 0.08
         else:
-            return 0.05
+            return 0.01
 
-    return 0.1
+    return 0.02
 
 
 def generate_reading(room: str, device: str, timestamp: datetime, temperature: float, humidity: float) -> dict:
@@ -149,16 +147,24 @@ def generate_reading(room: str, device: str, timestamp: datetime, temperature: f
 
     dev_info = DEVICES[device]
     if is_on:
-        # Add realistic variation (±15%)
-        variation = random.uniform(0.85, 1.15)
-        power = round(dev_info["base_watts"] * variation, 1)
+        if device == "AC":
+            power = random.randint(1000, 1800)
+        elif device == "Fan":
+            power = random.randint(60, 100)
+        elif device == "Lights":
+            power = random.randint(10, 40)
+        elif device == "Heater":
+            power = random.randint(1500, 2500)
+        else:
+            variation = random.uniform(0.85, 1.15)
+            power = round(dev_info["base_watts"] * variation, 1)
     else:
         power = dev_info["standby_watts"]
 
     return {
         "room": room,
         "device": device,
-        "power_watts": power,
+        "power_watts": float(power),
         "temperature": temperature,
         "humidity": humidity,
         "is_device_on": int(is_on),

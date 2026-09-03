@@ -6,8 +6,8 @@
 DHT dht(DHTPIN, DHTTYPE);
 
 // Pins
-int lightPin = 5;
-int acRelay = 2;
+int lightPin = 16;
+int acRelay = 17;
 int heaterRelay = 18;
 
 // We will simulate these instead of reading physical pins to get perfect curves, 

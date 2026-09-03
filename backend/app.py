@@ -29,6 +29,15 @@ RAW_CSV = os.path.join(DATA_DIR, "raw_sensor_data.csv")
 # ── Load ML model (lazy) ────────────────────────────────────────────────────
 predictor = None
 
+def calculate_slab_cost(kwh: float) -> float:
+    """Calculate cost based on Indian electricity slab tariff."""
+    if kwh <= 200:
+        return kwh * 4.0
+    elif kwh <= 400:
+        return 200 * 4.0 + (kwh - 200) * 6.0
+    else:
+        return 200 * 4.0 + 200 * 6.0 + (kwh - 400) * 8.0
+
 
 def get_predictor():
     global predictor
@@ -182,7 +191,7 @@ def get_analytics():
             "devices": int(proc["device"].nunique()),
             "date_range_start": str(proc["timestamp"].min()[:10]) if "timestamp" in proc.columns else "",
             "date_range_end": str(proc["timestamp"].max()[:10]) if "timestamp" in proc.columns else "",
-            "total_cost_inr": round(proc["energy_kwh"].sum() * 6.5, 2),
+            "total_cost_inr": round(calculate_slab_cost(proc["energy_kwh"].sum()), 2),
         }
 
     return jsonify(result)
@@ -202,16 +211,15 @@ def predict():
         return jsonify({"error": "No JSON data provided"}), 400
 
     try:
-        result = pred.predict(
-            hour=int(data.get("hour", 12)),
+        result = pred.predict_daily(
             day_of_week=int(data.get("day_of_week", 2)),
             month=int(data.get("month", 6)),
             is_weekend=int(data.get("is_weekend", 0)),
             room=data.get("room", "Living Room"),
             device=data.get("device", "AC"),
-            temperature=float(data.get("temperature", 30)),
-            humidity=float(data.get("humidity", 60)),
-            is_device_on=int(data.get("is_device_on", 1)),
+            avg_temperature=float(data.get("temperature", 30)),
+            avg_humidity=float(data.get("humidity", 60)),
+            usage_rate=float(data.get("usage_rate", 0.5)),
         )
         return jsonify(result)
     except Exception as e:
@@ -228,11 +236,14 @@ def predict_daily():
     data = request.get_json()
     try:
         result = pred.predict_daily(
+            day_of_week=2,  # default mid-week
+            month=int(data.get("month", 6)),
+            is_weekend=0,
             room=data.get("room", "Living Room"),
             device=data.get("device", "AC"),
-            month=int(data.get("month", 6)),
-            temperature=float(data.get("temperature", 30)),
-            humidity=float(data.get("humidity", 60)),
+            avg_temperature=float(data.get("temperature", 30)),
+            avg_humidity=float(data.get("humidity", 60)),
+            usage_rate=0.5, # default
         )
         return jsonify(result)
     except Exception as e:
